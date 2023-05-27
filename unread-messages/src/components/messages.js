@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import MsgBox from './msgbox';
 
 
@@ -6,7 +6,7 @@ function Messages(props){
         const msgList = props.messages.map((msg) => 
             {
                 return(
-                    <div>
+                    <div key={msg.id}>
                         <MsgBox msg={msg}/>
                     </div>
                 );
