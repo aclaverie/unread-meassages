@@ -1,7 +1,22 @@
 import './App.css';
 import Messages from './components/messages';
+import Top from './components/top';
+import Compose from './components/compose';
+import msgData from './components/msgData';
+import {useState} from 'react';
 
 function App() {
+  const [msgs, setMsgs] = useState(msgData)
+  const [newMsg, setNewMsg] = useState([]);
+  const [compose, setCompose] = useState(true);
+  
+  function addNewMessage(){
+    // console.log("Composed clicked!")
+    setMsgs(prevMsg => 
+      [...prevMsg, newMsg]
+    )
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -21,12 +36,22 @@ function App() {
       </header>
       
       <main className="container">
-        <section>
-        
+        <section className="app-side">
+          <ul className='app-ul'>
+            <li className='app-li'>Inbox</li>
+            <li className='app-li'>Sent</li>
+            <li className='app-li'>Junk</li>
+            <li className='app-li'>Trash</li>
+            <li className='app-li'>Compose</li>
+          </ul>
         </section>
-        <body>
-          <Messages />
-        </body>
+        <section className="app-body">
+          <div className="app-top">
+            {compose && <Compose handleClick={addNewMessage} />}
+            <Top count={newMsg.length} />
+          </div>
+          <Messages messages={msgs}/>
+        </section>
         
       </main>
       <div className="App-footer">
