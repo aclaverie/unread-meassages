@@ -3,8 +3,8 @@ import React from 'react';
 function MsgBox(props){
     return(
         <div key={props.msg.id} className="app-msg" style={{width: "720px"}}>
-            <p>Sender: {props.msg.email}</p>
-            <p>Message: {props.msg.message}</p>            
+            <p><strong>Sender</strong>: {props.msg.email}</p>
+            <p><strong>Message</strong>: {props.msg.message}</p>            
         </div>
     )
 }

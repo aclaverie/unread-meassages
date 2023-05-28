@@ -14,7 +14,7 @@ function App() {
   const [newMsg, setNewMsg] = useState(0);
   const [compose, setCompose] = useState(false);
   const [open, setOpen] = useState(false);
-
+  
   
   function openWrite(){
     setOpen(prevOpen => !prevOpen);
